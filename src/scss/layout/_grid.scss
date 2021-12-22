@@ -1,0 +1,51 @@
+@use 'sass:math';
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+
+  &--fluid {
+    padding-right: $grid-margin;
+    padding-left: $grid-margin;
+  }
+
+  @each $breakpoint, $width in $grid {
+    @if $width > 0 and $breakpoint != xl {
+      @include media-query($width, min) {
+        max-width: $width - ($grid-margin * 2);
+      }
+    }
+  }
+  @include media-query(sm, max) {
+    padding-right: $grid-margin;
+    padding-left: $grid-margin;
+  }
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: (math.div($grid-gutter, 2)) * -1;
+  margin-left: (math.div($grid-gutter, 2)) * -1;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  @include grid-columns(xs, $grid-cols, math.div($grid-gutter, 2));
+  @include media-query(sm, min) {
+    @include grid-columns(sm, $grid-cols, math.div($grid-gutter, 2));
+  }
+  @include media-query(md, min) {
+    @include grid-columns(md, $grid-cols, math.div($grid-gutter, 2));
+  }
+  @include media-query(lg, min) {
+    @include grid-columns(lg, $grid-cols, math.div($grid-gutter, 2));
+  }
+  @include media-query(xl, min) {
+    @include grid-columns(xl, $grid-cols, math.div($grid-gutter, 2));
+  }
+}

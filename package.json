@@ -1,0 +1,67 @@
+{
+  "name": "@spaceavocado/librarian-sandbox",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": {
+    "name": "David Horak",
+    "email": "info@davidhorak.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "rimraf dist && run-p watch:*",
+    "clean": "rimraf dist",
+    "build": "run-s clean check:* compile",
+    "compile": "cross-env NODE_ENV=production rollup -c",
+    "watch:check": "svelte-check --watch",
+    "watch:build": "cross-env NODE_ENV=development rollup --config --watch",
+    "check:svelte": "svelte-check",
+    "check:licenses": "license-checker --summary --excludePrivatePackages --onlyAllow \"MIT;MIT OR X11;Apache-2.0;ISC;BSD-3-Clause;BSD-2-Clause;CC-BY-4.0;Public Domain;BSD;CC-BY-3.0;CC0-1.0;Python-2.0;Unlicense\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spaceavocado/librarian-sandbox.git"
+  },
+  "homepage": "https://github.com/spaceavocado/librarian-sandbox",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@spaceavocado/librarian": "^0.1.8",
+    "@tsconfig/svelte": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "license-checker": "^25.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.61.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-html2": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.45.1",
+    "svelte-check": "^2.2.11",
+    "svelte-preprocess": "^4.10.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "svelte": "^3.44.3"
+  }
+}

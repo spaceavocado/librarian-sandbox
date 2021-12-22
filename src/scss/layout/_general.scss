@@ -1,0 +1,14 @@
+.flex,
+.flex--inline {
+  display: flex;
+  .spacer {
+    flex-grow: 1;
+  }
+  .break {
+    flex-basis: 100%;
+    width: 0;
+  }
+}
+.flex--inline {
+  display: inline-flex;
+}

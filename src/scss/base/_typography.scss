@@ -1,0 +1,47 @@
+// Fonts
+@include font-face('Open Sans', 'lato-regular');
+@include font-face('Open Sans', 'lato-bold', 700);
+@include font-face('Open Sans', 'lato-light', 300);
+
+html {
+  font-size: $fs-base;
+}
+body {
+  font-size: 1rem;
+  @include line-height($fs-base * $lhr);
+  font-family: $font-primary;
+  color: $c-text-primary;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body {
+  margin: 0;
+  font-weight: normal;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: italic;
+}
+
+a {
+  color: $c-primary;
+  text-decoration: none;
+  transition: color $at-1 $ac-1;
+  &:hover {
+    text-decoration: none;
+    color: darken($c-primary, 10%);
+  }
+}

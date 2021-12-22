@@ -1,0 +1,11 @@
+.heading--1 {
+  @include font-size($fs-xl);
+  color: $c-primary;
+  font-weight: 700;
+}
+.heading--2 {
+  @include font-size($fs-lg);
+}
+.heading--3 {
+  @include font-size($fs-sm);
+}

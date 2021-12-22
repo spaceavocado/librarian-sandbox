@@ -1,0 +1,13 @@
+@include vertical-spacing(xs);
+@include media-query(sm, min) {
+  @include vertical-spacing(sm);
+}
+@include media-query(md, min) {
+  @include vertical-spacing(md);
+}
+@include media-query(lg, min) {
+  @include vertical-spacing(lg);
+}
+@include media-query(xl, min) {
+  @include vertical-spacing(xl);
+}

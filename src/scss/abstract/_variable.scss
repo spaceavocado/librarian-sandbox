@@ -1,0 +1,72 @@
+@use 'sass:math';
+
+// Font sizes
+$fs-xs: 12;
+$fs-sm: 16;
+$fs-md: 18;
+$fs-lg: 22;
+$fs-xl: 26;
+
+// Base font size
+$fs-base: $fs-sm * 1px;
+// Line height ratio
+$lhr: 1.4;
+
+// Colors
+// Pallette
+$c-primary: rgb(49, 135, 247);
+// Background
+$c-bg-primary: rgb(245, 246, 251);
+// Foreground
+$c-text-primary: rgb(36, 55, 78);
+$c-text-inverted: rgb(255, 255, 255);
+
+// States
+$c-danger: rgb(220, 25, 101);
+$c-danger-text: contrast-color($c-danger, $c-text-inverted, $c-text-primary);
+$c-success: rgb(168, 220, 25);
+$c-success-text: contrast-color($c-success, $c-text-inverted, $c-text-primary);
+$c-info: rgb(49, 135, 247);
+$c-info-text: contrast-color($c-info, $c-text-inverted, $c-text-primary);
+$c-warning: rgb(220, 191, 25);
+$c-warning-text: contrast-color($c-warning, $c-text-inverted, $c-text-primary);
+
+// Form
+$c-input-border: rgb(198, 205, 218);
+$c-input-bg: rgb(255, 255, 255);
+
+// Other
+$c-keyline-1: rgba(226, 226, 226, 0.7);
+$c-disabled: rgb(226, 226, 226);
+$c-disabled-text: darken($c-disabled, 30%);
+
+// Fonts
+$font-primary: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Animations
+$at-1: 300ms;
+$ac-1: cubic-bezier(0.25, 1.7, 0.35, 0.8);
+$ac-2: ease-in-out;
+
+// Vertical Spacing
+$vs-1: 12px;
+$vs-2: 24px;
+$vs-3: 48px;
+$vs-4: 96px;
+$vertical-spacing: ($vs-1, $vs-2, $vs-3, $vs-4);
+
+// Half, quarter
+$vs-1-half: math.div($vs-1, 2);
+$vs-1-quarter: math.div($vs-1, 4);
+
+// Grid
+$grid: (
+  xs: 0px,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+);
+$grid-margin: $vs-2;
+$grid-gutter: $vs-2;
+$grid-cols: 12;
