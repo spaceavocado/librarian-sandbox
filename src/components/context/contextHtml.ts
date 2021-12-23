@@ -3,7 +3,6 @@ import type { EvaluationResult, Match } from '@spaceavocado/librarian'
 import {
   constant,
   drop,
-  eq,
   ifElse,
   isUndefined,
   join,
@@ -15,6 +14,7 @@ import {
   tail,
   unique,
 } from '../../common/fp'
+import { isBoolean } from '../../common/fp/isBoolean'
 
 const CSS_CLASS_MATCH = 'match'
 
@@ -71,4 +71,4 @@ const placeMatches = (context: string) => (matches: Match[]) =>
   )(matches)
 
 export const contextHtml = (context: string) => (result: EvaluationResult) =>
-  ifElse(eq(false), constant(context), placeMatches(context))(result)
+  ifElse(isBoolean, constant(context), placeMatches(context))(result)
