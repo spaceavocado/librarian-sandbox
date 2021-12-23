@@ -14,7 +14,7 @@
     // input = '"San" AND "nta"'
     input = '(("santa" OR "house") AND (NOT "missing" OR "sky??"))'
     search()
-  });
+  })
 </script>
 
 <style lang="scss">
@@ -34,6 +34,11 @@
 </style>
 
 <div class="expression">
-  <Text name="epxression" value={input} label="Search Expression (Master Librarian)" on:changed={(e) => input = e.detail} />
+  <Text
+    name="epxression"
+    value={input}
+    label="Search Expression (Master Librarian)"
+    on:changed={(e) => (input = e.detail)}
+  />
   <Button title="Search" on:click={search}>Search</Button>
-</div> 
+</div>

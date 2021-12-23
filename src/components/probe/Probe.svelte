@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ProbeResult } from "@spaceavocado/librarian";
-  import { probeHtml } from "./probeHtml";
+  import type { ProbeResult } from '@spaceavocado/librarian'
+  import { probeHtml } from './probeHtml'
 
   export let probe: ProbeResult
 
@@ -22,7 +22,7 @@
       display: inline-block;
       vertical-align: middle;
       padding: $vs-1-half;
-      border-radius: $vs-1; 
+      border-radius: $vs-1;
     }
 
     :global(.evaluable--term) {

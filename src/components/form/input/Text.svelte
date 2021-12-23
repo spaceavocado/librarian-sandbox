@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  
+
   export let value: string
   export let name: string
   export let label = ''
@@ -95,15 +95,39 @@
   }
 </style>
 
-<div class="input" class:input--active={active} class:input--disabled={disabled}>
+<div
+  class="input"
+  class:input--active={active}
+  class:input--disabled={disabled}
+>
   <div class="input__content">
     {#if label}
-      <label for="{name}">{label}</label>
+      <label for={name}>{label}</label>
     {/if}
     {#if type == Type.MultiLine}
-      <textarea bind:value="{value}" rows="5" name="{name}" placeholder="{placeholder}" disabled="{disabled}" on:focus="{focus}" on:blur="{blur}" on:input="{input}" on:change="{changed}" />
+      <textarea
+        bind:value
+        rows="5"
+        {name}
+        {placeholder}
+        {disabled}
+        on:focus={focus}
+        on:blur={blur}
+        on:input={input}
+        on:change={changed}
+      />
     {:else}
-      <input bind:value="{value}" type="text" name="{name}" placeholder="{placeholder}" disabled="{disabled}" on:focus="{focus}" on:blur="{blur}" on:input="{input}" on:change="{changed}" />
+      <input
+        bind:value
+        type="text"
+        {name}
+        {placeholder}
+        {disabled}
+        on:focus={focus}
+        on:blur={blur}
+        on:input={input}
+        on:change={changed}
+      />
     {/if}
     <hr aria-hidden="true" />
   </div>

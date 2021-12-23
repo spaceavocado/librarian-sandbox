@@ -3,12 +3,12 @@
     Primary = 'Primary',
     Danger = 'Danger',
   }
-  
+
   export enum Modifier {
     None = '',
     Muted = 'Muted',
     Link = 'Link',
-    Rounded = 'Rounded'
+    Rounded = 'Rounded',
   }
 
   export enum Size {
@@ -19,13 +19,13 @@
 
   export enum IconPlacement {
     Right = 'Right',
-    Left = 'Left'
+    Left = 'Left',
   }
 </script>
 
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import { identity, toLower } from '../../common/fp';
+  import { identity, toLower } from '../../common/fp'
   import SvgIcon from '../misc/SvgIcon.svelte'
 
   export let title = ''
@@ -36,14 +36,16 @@
   export let iconPlacement: IconPlacement = IconPlacement.Left
   export let disabled = false
 
-  $: cls = 'button ' + [type, size, ...[modifier].flat(), icon ? `icon--${iconPlacement}` : '']
-    .filter(identity)
-    .map(toLower)
-    .map((modifier) => `button--${modifier}`)
-    .join(' ')
+  $: cls =
+    'button ' +
+    [type, size, ...[modifier].flat(), icon ? `icon--${iconPlacement}` : '']
+      .filter(identity)
+      .map(toLower)
+      .map((modifier) => `button--${modifier}`)
+      .join(' ')
 
   const dispatch = createEventDispatcher()
-  
+
   const click = () => !disabled && dispatch('click')
 </script>
 
@@ -74,7 +76,7 @@
       max-height: $vs-2;
       padding: $vs-1-half;
       :global(.svg-icon) {
-        margin: 0
+        margin: 0;
       }
     }
 
@@ -134,12 +136,18 @@
   }
 </style>
 
-<div class={cls} class:button--disabled={disabled} role="button" title={title} on:click|stopPropagation="{click}">
+<div
+  class={cls}
+  class:button--disabled={disabled}
+  role="button"
+  {title}
+  on:click|stopPropagation={click}
+>
   {#if icon && iconPlacement === IconPlacement.Left}
-    <SvgIcon icon={icon} />
+    <SvgIcon {icon} />
   {/if}
-  <slot/>
+  <slot />
   {#if icon && iconPlacement === IconPlacement.Right}
-    <SvgIcon icon={icon} />
+    <SvgIcon {icon} />
   {/if}
 </div>

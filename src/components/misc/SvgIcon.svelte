@@ -1,5 +1,5 @@
 <script lang="ts">
-  import svgIcon from '../../misc/icon' 
+  import svgIcon from '../../misc/icon'
 
   export let icon: string
   $: svg = svgIcon(icon)
@@ -18,4 +18,4 @@
 
 <div class="svg-icon">
   {@html svg}
-</div> 
+</div>

@@ -8,7 +8,7 @@
 
 <style lang="scss">
   .tooltip {
-    $c-tooltip: rgba($c-text-primary, .7);
+    $c-tooltip: rgba($c-text-primary, 0.7);
 
     padding: $vs-1-half $vs-1 * 0.75;
     background: $c-tooltip;
@@ -23,7 +23,11 @@
 </style>
 
 {#if on}
-  <div class="tooltip" transition:fade="{{duration: 100}}" style="left: {left}px; top: {top}px">
-    <slot/>
-  </div> 
+  <div
+    class="tooltip"
+    transition:fade={{ duration: 100 }}
+    style="left: {left}px; top: {top}px"
+  >
+    <slot />
+  </div>
 {/if}

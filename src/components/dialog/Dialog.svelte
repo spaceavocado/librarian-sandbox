@@ -7,8 +7,8 @@
 
 <script lang="ts">
   import { createEventDispatcher, onMount, onDestroy } from 'svelte'
-  import { fade } from 'svelte/transition';
-  import { cond, eq } from '../../common/fp';
+  import { fade } from 'svelte/transition'
+  import { cond, eq } from '../../common/fp'
   import Button, { Size, Modifier } from '../button/Button.svelte'
 
   export let title: string
@@ -23,8 +23,9 @@
 
   const ok = () => !disabled && dispatch('ok')
   const cancel = () => !disabled && dispatch('cancel')
-  
-  const keypress = (e: KeyboardEvent) => !disabled &&
+
+  const keypress = (e: KeyboardEvent) =>
+    !disabled &&
     cond([
       [eq('Enter'), ok],
       [eq('Escape'), cancel],
@@ -43,7 +44,7 @@
 
 <style lang="scss">
   .dialog {
-    $c-mask: rgba(rgb(0, 0, 0), .35);
+    $c-mask: rgba(rgb(0, 0, 0), 0.35);
 
     position: fixed;
     top: 0;
@@ -105,26 +106,41 @@
   }
 </style>
 
-<div class={cls} class:button-disabled={disabled} on:click|preventDefault={cancel} transition:fade="{{duration: 300}}">
-  <div class="dialog__window" on:click|stopPropagation="{noop}">
+<div
+  class={cls}
+  class:button-disabled={disabled}
+  on:click|preventDefault={cancel}
+  transition:fade={{ duration: 300 }}
+>
+  <div class="dialog__window" on:click|stopPropagation={noop}>
     <div class="dialog__window__header">
-      <span>{ title }</span>
+      <span>{title}</span>
       <Button
         icon="close"
         size={Size.Small}
         modifier={[Modifier.Muted, Modifier.Rounded]}
-        disabled={disabled}
+        {disabled}
         on:click={cancel}
       />
     </div>
     <div class="dialog__window__body">
-      <slot></slot>
+      <slot />
     </div>
     <div class="dialog__window__footer">
       {#if type === Type.Confirm}
-        <Button size={Size.Small} modifier={Modifier.Link} disabled={disabled} on:click={cancel}>{labelCancel}</Button>
+        <Button
+          size={Size.Small}
+          modifier={Modifier.Link}
+          {disabled}
+          on:click={cancel}>{labelCancel}</Button
+        >
       {/if}
-      <Button size={Size.Small} modifier={Modifier.Link} disabled={disabled} on:click={ok}>{labelOk}</Button>
+      <Button
+        size={Size.Small}
+        modifier={Modifier.Link}
+        {disabled}
+        on:click={ok}>{labelOk}</Button
+      >
     </div>
   </div>
 </div>
