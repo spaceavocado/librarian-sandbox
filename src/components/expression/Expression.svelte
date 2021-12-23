@@ -99,6 +99,19 @@
       </div>
       <div class="legend__boolean__entry">
         <div>
+          <strong>NOR</strong> Requires no terms to be found within the search context.
+        </div>
+        <div>Sample: <span>"nasa" NOR "mission" NOR "ganymede"</span>.</div>
+      </div>
+      <div class="legend__boolean__entry">
+        <div>
+          <strong>XOR</strong> Requires exactly one term to be found within the search
+          context.
+        </div>
+        <div>Sample: <span>"nasa" XOR "mission" XOR "ganymede"</span>.</div>
+      </div>
+      <div class="legend__boolean__entry">
+        <div>
           <strong>NOT</strong> Flips the outcome of AND, OR operators and/or result
           of the search term.
         </div>

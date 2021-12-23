@@ -1,6 +1,6 @@
 {
   "name": "@spaceavocado/librarian-sandbox",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A sandbox SPA for @spaceavocado/librarian library.",
   "main": "index.js",
   "author": {
@@ -65,7 +65,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@spaceavocado/librarian": "^0.2.0",
+    "@spaceavocado/librarian": "^0.3.0",
     "svelte": "^3.44.3"
   },
   "lint-staged": {

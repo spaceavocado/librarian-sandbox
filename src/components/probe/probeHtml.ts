@@ -3,7 +3,7 @@ import type {
   ProbeResult,
   Serializable,
 } from '@spaceavocado/librarian'
-import { AND, NOT, OR, TERM } from '@spaceavocado/librarian'
+import { AND, NOR, NOT, OR, TERM, XOR } from '@spaceavocado/librarian'
 import type { Evaluable } from '@spaceavocado/librarian/types/core'
 
 import { identity, ifElse, isString, isUndefined } from '../../common/fp'
@@ -98,6 +98,10 @@ formatEvaluable = (
       return formatTerm(probe, level)
     case OR:
       return formatLogical('OR', CSS_CLASS_OR)(probe, level)
+    case NOR:
+      return formatLogical('NOR', CSS_CLASS_OR)(probe, level)
+    case XOR:
+      return formatLogical('XOR', CSS_CLASS_OR)(probe, level)
     case AND:
       return formatLogical('AND', CSS_CLASS_AND)(probe, level)
     case NOT:
