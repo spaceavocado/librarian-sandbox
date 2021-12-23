@@ -42,7 +42,9 @@ const plugins = [
     fileName: 'index.html',
   }),
   copy({
-    targets: [{ src: 'src/public/fonts', dest: 'dist/assets' }],
+    targets: [
+      { src: ['src/public/fonts', 'src/public/icons'], dest: 'dist/assets' },
+    ],
   }),
   ...(production
     ? [terser()]
