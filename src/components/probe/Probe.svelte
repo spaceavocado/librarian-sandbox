@@ -9,9 +9,9 @@
 
 <style lang="scss">
   .probe {
-    $c-match: #19ce37;
-    $c-miss: #ec5045;
-    $c-skipped: #a5b1b4;
+    $c-match: #0bd315;
+    $c-miss: #f34336;
+    $c-skipped: #b9e1e7;
 
     h2 {
       @include font-size($fs-xs);
@@ -31,19 +31,25 @@
       margin: 0px $vs-1-quarter;
     }
 
+    $c1: $c-match;
+    $c2: $c-miss;
+    $c3: $c-skipped;
     @for $i from 0 through 5 {
+      $c1: mix(white, $c1, $i * 10%);
+      $c2: mix(white, $c2, $i * 10%);
+      $c3: mix(white, $c3, $i * 10%);
       :global(.result--match--#{$i}) {
-        $color: lighten($c-match, $i * 10%);
+        $color: $c1;
         background-color: $color;
         color: contrast-color($color, $c-text-inverted, $c-text-primary);
       }
       :global(.result--miss--#{$i}) {
-        $color: lighten($c-miss, $i * 10%);
+        $color: $c2;
         background-color: $color;
         color: contrast-color($color, $c-text-inverted, $c-text-primary);
       }
       :global(.result--skipped--#{$i}) {
-        $color: lighten($c-skipped, $i * 10%);
+        $color: $c3;
         background-color: $color;
         color: contrast-color($color, $c-text-inverted, $c-text-primary);
       }
