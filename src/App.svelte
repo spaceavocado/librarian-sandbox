@@ -15,7 +15,7 @@
   let probeResult: ProbeResult | undefined
 
   const search = () => {
-    ;[searchResult, probeResult] = probe(parse(expression)).evaluate(context)
+    ;[searchResult, probeResult] = probe(parse(expression)).execute(context)
   }
 </script>
 
