@@ -69,7 +69,7 @@
     "svelte": "^3.44.3"
   },
   "lint-staged": {
-    "src/**/*.{svelte}": [
+    "src/**/*.svelte": [
       "npm run prettier:svelte",
       "git add"
     ]
