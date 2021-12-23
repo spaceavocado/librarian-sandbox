@@ -16,6 +16,7 @@
     h2 {
       @include font-size($fs-xs);
       padding-left: $vs-1-half;
+      margin-bottom: $vs-1-quarter;
     }
 
     :global(.evaluable) {
@@ -47,10 +48,46 @@
         color: contrast-color($color, $c-text-inverted, $c-text-primary);
       }
     }
+
+    .legend {
+      @include font-size($fs-xs);
+      padding-left: $vs-1-half;
+      margin-top: $vs-1-half;
+
+      div {
+        display: inline-block;
+
+        span {
+          display: inline-block;
+          border-radius: 50%;
+          width: $vs-1;
+          height: $vs-1;
+          margin-right: $vs-1-half;
+          vertical-align: text-top;
+        }
+      }
+      div + div {
+        margin-left: $vs-1;
+      }
+      &__match span {
+        background-color: $c-match;
+      }
+      &__miss span {
+        background-color: $c-miss;
+      }
+      &__skipped span {
+        background-color: $c-skipped;
+      }
+    }
   }
 </style>
 
 <div class="probe">
   <h2>Expression Probe</h2>
   {@html html}
+  <div class="legend">
+    <div class="legend__match"><span />Postive Match</div>
+    <div class="legend__miss"><span />Negative Match</div>
+    <div class="legend__skipped"><span />Eliminated Branch</div>
+  </div>
 </div>

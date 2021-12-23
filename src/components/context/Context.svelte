@@ -61,7 +61,7 @@
   onMount(async () => {
     registerTooltips()
     context =
-      "At the same time, demand for appearances by Santa Claus at parties, parades and other events has skyrocketed this holiday season but the number of trained and available Santas has gone down. Some Santas don't feel comfortable yet doing in-person visits. About 350 Santas that worked with HireSanta.com have died in the past 18 months due to Covid-19 or other heath issues, according to Allen, and others have hung up the red coat for retirement. Enrollment at Santa training schools in the US was down this year, too."
+      "“Saying 'I notice you're a nerd' is like saying, 'Hey, I notice that you'd rather be intelligent than be stupid, that you'd rather be thoughtful than be vapid, that you believe that there are things that matter more than the arrest record of Lindsay Lohan. Why is that?' In fact, it seems to me that most contemporary insults are pretty lame. Even 'lame' is kind of lame. Saying 'You're lame' is like saying 'You walk with a limp.' Yeah, whatever, so does 50 Cent, and he's done all right for himself.”"
     dispatch('changed', context)
   })
 
@@ -97,6 +97,7 @@
   {#if contextDialogOpen}
     <Dialog
       title="Change Search Context"
+      disabledEnterKey={true}
       on:ok={toggleContextDialog}
       on:cancel={toggleContextDialog}
     >

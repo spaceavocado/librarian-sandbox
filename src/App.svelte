@@ -19,12 +19,30 @@
   }
 </script>
 
+<style lang="scss">
+  main {
+    .blurb {
+      @include font-size($fs-xs);
+    }
+  }
+  footer {
+    @include font-size($fs-xs);
+    opacity: 0.7;
+  }
+</style>
+
 <main>
   <div class="container">
     <div class="row">
       <div class="col--xs--12">
         <div class="vs--xs--2" />
         <h1 class="heading--1">Librarian Sandbox</h1>
+        <p class="blurb">
+          <a href="https://github.com/spaceavocado/librarian" target="_blank"
+            >Librarian</a
+          >, a micro search library leveraging Boolean Operators, supporting
+          Wildcard annotation within search terms.
+        </p>
         <div class="vs--xs--2" />
         <div class="keyline--1" />
       </div>
@@ -56,6 +74,13 @@
         />
       </div>
       <div class="vs--xs--2" />
+      <div class="keyline--1" />
     </div>
+    <footer>
+      <div class="vs--xs--2" />
+      <a href="https://spaceavocado.com/" target="_blank">Space Avocado</a> | In
+      search of greatness.
+      <div class="vs--xs--2" />
+    </footer>
   </div>
 </main>

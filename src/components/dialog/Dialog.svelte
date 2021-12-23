@@ -16,6 +16,7 @@
   export let labelCancel = 'Cancel'
   export let type: Type = Type.Notice
   export let disabled = false
+  export let disabledEnterKey = false
 
   const dispatch = createEventDispatcher()
 
@@ -27,7 +28,7 @@
   const keypress = (e: KeyboardEvent) =>
     !disabled &&
     cond([
-      [eq('Enter'), ok],
+      [eq('Enter'), () => !disabledEnterKey && ok()],
       [eq('Escape'), cancel],
     ])(e.key)
 
