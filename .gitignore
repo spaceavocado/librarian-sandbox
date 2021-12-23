@@ -16,3 +16,6 @@ npm-debug.log
 
 # Test
 coverage
+
+# Firebase
+.firebase
