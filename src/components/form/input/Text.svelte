@@ -27,10 +27,8 @@
   const input = () => dispatch('input', value)
   const changed = () => dispatch('changed', value)
 
-  const keypress = (e: KeyboardEvent) => !disabled
-    && type === Type.SingleLine
-    && e.key === 'Enter'
-    && changed()
+  const keypress = (e: KeyboardEvent) =>
+    !disabled && type === Type.SingleLine && e.key === 'Enter' && changed()
 </script>
 
 <style lang="scss">

@@ -2,7 +2,7 @@
   import { createEventDispatcher, onMount } from 'svelte'
   import Text from '../form/input/Text.svelte'
   import Button from '../button/Button.svelte'
-  import { pipe } from '../../common/fp';
+  import { pipe } from '../../common/fp'
 
   const dispatch = createEventDispatcher()
 
