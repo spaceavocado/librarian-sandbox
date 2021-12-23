@@ -17,7 +17,7 @@
     "watch:check": "svelte-check --watch",
     "watch:build": "cross-env NODE_ENV=development rollup --config --watch",
     "check:svelte": "svelte-check",
-    "check:licenses": "license-checker --summary --excludePrivatePackages --onlyAllow \"MIT;MIT OR X11;Apache-2.0;ISC;BSD-3-Clause;BSD-2-Clause;CC-BY-4.0;Public Domain;BSD;CC-BY-3.0;CC0-1.0;Python-2.0;Unlicense\""
+    "check:licenses": "license-checker --summary --excludePrivatePackages --onlyAllow \"MIT;MIT OR X11;Apache-2.0;ISC;BSD-3-Clause;BSD-2-Clause;CC-BY-4.0;Public Domain;BSD;CC-BY-3.0;CC0-1.0;Python-2.0;Unlicense\" --excludePackages \"buffers@0.1.1\""
   },
   "repository": {
     "type": "git",
