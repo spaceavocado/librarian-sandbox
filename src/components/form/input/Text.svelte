@@ -26,9 +26,6 @@
   }
   const input = () => dispatch('input', value)
   const changed = () => dispatch('changed', value)
-
-  const keypress = (e: KeyboardEvent) =>
-    !disabled && type === Type.SingleLine && e.key === 'Enter' && changed()
 </script>
 
 <style lang="scss">
@@ -130,7 +127,6 @@
         on:blur={blur}
         on:input={input}
         on:change={changed}
-        on:keydown={keypress}
       />
     {/if}
     <hr aria-hidden="true" />

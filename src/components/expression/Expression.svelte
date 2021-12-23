@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { createEventDispatcher, onMount } from 'svelte'
+  import { createEventDispatcher, onMount, onDestroy } from 'svelte'
   import Text from '../form/input/Text.svelte'
   import Button from '../button/Button.svelte'
-  import { pipe } from '../../common/fp'
 
   const dispatch = createEventDispatcher()
 
@@ -10,9 +9,20 @@
 
   const search = () => dispatch('changed', input)
 
+  const keypress = (e: KeyboardEvent) => e.key === 'Enter' && search()
+
   onMount(async () => {
+    document
+      .querySelector('.expression__input input')
+      .addEventListener('keyup', keypress)
     input = '(("cen?" OR "penny" OR "beans") AND (NOT "s*ms" OR "*ame"))'
     search()
+  })
+
+  onDestroy(async () => {
+    document
+      .querySelector('.expression__input input')
+      .removeEventListener('keyup', keypress)
   })
 </script>
 
@@ -77,7 +87,7 @@
       name="epxression"
       value={input}
       label="Search Expression (Master Librarian)"
-      on:changed={pipe((e) => (input = e.detail), search)}
+      on:changed={(e) => (input = e.detail)}
     />
     <Button title="Search" on:click={search}>Search</Button>
   </div>
@@ -99,14 +109,15 @@
       </div>
       <div class="legend__boolean__entry">
         <div>
-          <strong>NOR</strong> Requires no terms to be found within the search context.
+          <strong>NOR</strong> Negative OR, Requires no terms to be found within
+          the search context.
         </div>
         <div>Sample: <span>"nasa" NOR "mission" NOR "ganymede"</span>.</div>
       </div>
       <div class="legend__boolean__entry">
         <div>
-          <strong>XOR</strong> Requires exactly one term to be found within the search
-          context.
+          <strong>XOR</strong> Exclusive OR, requires exactly one term to be found
+          within the search context.
         </div>
         <div>Sample: <span>"nasa" XOR "mission" XOR "ganymede"</span>.</div>
       </div>
