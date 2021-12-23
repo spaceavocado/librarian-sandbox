@@ -12,6 +12,8 @@ const CSS_CLASS_EVALUABLE = 'evaluable'
 const CSS_CLASS_TERM = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--term`
 const CSS_CLASS_AND = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--and`
 const CSS_CLASS_OR = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--or`
+const CSS_CLASS_XOR = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--xor`
+const CSS_CLASS_NOR = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--nor`
 const CSS_CLASS_NOT = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--not`
 const CSS_CLASS_RESULT = 'result'
 const CSS_CLASS_MATCH = `${CSS_CLASS_RESULT} ${CSS_CLASS_RESULT}--match`
@@ -99,9 +101,9 @@ formatEvaluable = (
     case OR:
       return formatLogical('OR', CSS_CLASS_OR)(probe, level)
     case NOR:
-      return formatLogical('NOR', CSS_CLASS_OR)(probe, level)
+      return formatLogical('NOR', CSS_CLASS_NOR)(probe, level)
     case XOR:
-      return formatLogical('XOR', CSS_CLASS_OR)(probe, level)
+      return formatLogical('XOR', CSS_CLASS_XOR)(probe, level)
     case AND:
       return formatLogical('AND', CSS_CLASS_AND)(probe, level)
     case NOT:
