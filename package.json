@@ -11,8 +11,9 @@
   "scripts": {
     "start": "rimraf dist && run-p watch:*",
     "clean": "rimraf dist",
-    "build": "run-s clean check:* compile",
+    "build": "run-s clean check:* prettier compile",
     "compile": "cross-env NODE_ENV=production rollup -c",
+    "prettier": "npx prettier --write --plugin-search-dir=. ./**/*.svelte",
     "watch:check": "svelte-check --watch",
     "watch:build": "cross-env NODE_ENV=development rollup --config --watch",
     "check:svelte": "svelte-check",
