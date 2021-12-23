@@ -1,19 +1,20 @@
-import {
-  ifElse,
-  eq,
-  constant,
-  pipe,
-  sort,
-  reduce,
-  unique,
-  join,
-  isUndefined,
-  drop,
-  tail,
-  map,
-  split,
-} from '../../common/fp'
 import type { EvaluationResult, Match } from '@spaceavocado/librarian'
+
+import {
+  constant,
+  drop,
+  eq,
+  ifElse,
+  isUndefined,
+  join,
+  map,
+  pipe,
+  reduce,
+  sort,
+  split,
+  tail,
+  unique,
+} from '../../common/fp'
 
 const CSS_CLASS_MATCH = 'match'
 

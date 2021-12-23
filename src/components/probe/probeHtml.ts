@@ -6,7 +6,7 @@ import type {
 import { AND, NOT, OR, TERM } from '@spaceavocado/librarian'
 import type { Evaluable } from '@spaceavocado/librarian/types/core'
 
-import { ifElse, isUndefined, isString, identity } from '../../common/fp'
+import { identity, ifElse, isString, isUndefined } from '../../common/fp'
 
 const CSS_CLASS_EVALUABLE = 'evaluable'
 const CSS_CLASS_TERM = `${CSS_CLASS_EVALUABLE} ${CSS_CLASS_EVALUABLE}--term`
@@ -21,7 +21,7 @@ const CSS_CLASS_SKIPPED = `${CSS_CLASS_RESULT} ${CSS_CLASS_RESULT}--skipped`
 let formatEvaluable: (
   probe: ProbeResult,
   level: number
-) => (...arg: Serializable[]) => string
+) => (...arg: Serializable[]) => string = undefined
 
 const resultCssClass = (result: EvaluationResult | undefined, level: number) =>
   ((base) => `${base} ${base}--${level}`)(
