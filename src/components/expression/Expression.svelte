@@ -123,7 +123,7 @@
       </div>
       <div class="legend__boolean__entry">
         <div>
-          <strong>NOT</strong> Flips the outcome of AND, OR operators and/or result
+          <strong>NOT</strong> Flips the outcome of AND, OR, NOR, XOR operators and/or result
           of the search term.
         </div>
         <div>
