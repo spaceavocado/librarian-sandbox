@@ -2,6 +2,7 @@
   import { createEventDispatcher, onMount } from 'svelte'
   import Text from '../form/input/Text.svelte'
   import Button from '../button/Button.svelte'
+  import { pipe } from '../../common/fp';
 
   const dispatch = createEventDispatcher()
 
@@ -38,7 +39,7 @@
     name="epxression"
     value={input}
     label="Search Expression (Master Librarian)"
-    on:changed={(e) => (input = e.detail)}
+    on:changed={pipe((e) => (input = e.detail), search)}
   />
   <Button title="Search" on:click={search}>Search</Button>
 </div>
