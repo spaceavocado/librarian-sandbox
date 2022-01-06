@@ -9,6 +9,7 @@ import {
   map,
   pipe,
   reduce,
+  reverse,
   sort,
   split,
   tail,
@@ -46,7 +47,7 @@ const reduceMatches = (matches: Match[]) =>
     ),
     map((match) => ({
       ...match,
-      term: pipe(split('\xBC'), unique, join(', '))(match.term),
+      term: pipe(split('\xBC'), unique, reverse, join(', '))(match.term),
     }))
   )(matches)
 
