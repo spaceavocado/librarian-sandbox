@@ -55,8 +55,8 @@
       margin-top: $vs-1-half;
       width: 100%;
       display: flex;
-      &__boolean,
-      &__wildcards {
+      &__left,
+      &__right {
         width: 40%;
 
         &__title {
@@ -81,7 +81,7 @@
           margin-top: $vs-1-half;
         }
       }
-      &__wildcards {
+      &__right {
         width: 60%;
       }
     }
@@ -107,36 +107,36 @@
     />
   </div>
   <div class="expression__legend">
-    <div class="expression__legend__boolean">
-      <div class="expression__legend__boolean__title">Boolean Operators</div>
-      <div class="expression__legend__boolean__entry">
+    <div class="expression__legend__left">
+      <div class="expression__legend__left__title">Boolean Operators</div>
+      <div class="expression__legend__left__entry">
         <div>
           <strong>AND</strong> Requires all terms to be found within the search context.
         </div>
         <div>Sample: <span>"nasa" AND "mission" AND "ganymede"</span>.</div>
       </div>
-      <div class="expression__legend__boolean__entry">
+      <div class="expression__legend__left__entry">
         <div>
           <strong>OR</strong> Requires at least one term to be found within the search
           context.
         </div>
         <div>Sample: <span>"nasa" OR "mission" OR "ganymede"</span>.</div>
       </div>
-      <div class="expression__legend__boolean__entry">
+      <div class="expression__legend__left__entry">
         <div>
           <strong>NOR</strong> Negative OR, Requires no terms to be found within
           the search context.
         </div>
         <div>Sample: <span>"nasa" NOR "mission" NOR "ganymede"</span>.</div>
       </div>
-      <div class="expression__legend__boolean__entry">
+      <div class="expression__legend__left__entry">
         <div>
           <strong>XOR</strong> Exclusive OR, requires exactly one term to be found
           within the search context.
         </div>
         <div>Sample: <span>"nasa" XOR "mission" XOR "ganymede"</span>.</div>
       </div>
-      <div class="expression__legend__boolean__entry">
+      <div class="expression__legend__left__entry">
         <div>
           <strong>NOT</strong> Flips the outcome of AND, OR, NOR, XOR operators and/or
           result of the search term.
@@ -153,9 +153,9 @@
         >
       </p>
     </div>
-    <div class="expression__legend__wildcards">
-      <div class="expression__legend__wildcards__title">Wildcards</div>
-      <div class="expression__legend__wildcards__entry">
+    <div class="expression__legend__right">
+      <div class="expression__legend__right__title">Wildcards</div>
+      <div class="expression__legend__right__entry">
         <div>
           <strong>An Asterisk (*)</strong> An asterisk (*) may be used to specify
           any number of characters. It is typically used at the end of a root word,
@@ -171,7 +171,7 @@
           >r, b<strong>ea</strong>r).
         </div>
       </div>
-      <div class="expression__legend__wildcards__entry">
+      <div class="expression__legend__right__entry">
         <div>
           <strong>A Question Mark (?)</strong> A question mark (?) may be used to
           represent a single character, anywhere in the word. It is most useful when
@@ -195,6 +195,23 @@
           target="_blank">Full documentation</a
         >
       </p>
+      <div class="vs--xs--1" />
+      <div class="expression__legend__right__title">
+        Escape Special Characters
+      </div>
+      <div class="expression__legend__right__entry">
+        <div>
+          <strong>An Asterisk (*)</strong>, <strong>A Question Mark (?)</strong>
+          and <strong>A Term Boundary (")</strong> may be escaped, i.e. search
+          literaly as <span>\*</span>, <span>\?</span>, <span>\"</span> respectively.
+        </div>
+        <div>
+          Sample: <span>\*note</span> (matches: <strong>*note</strong>),
+          <span>home\?</span>
+          (matches: <strong>home?</strong>), <span>\"name\"</span> (matches:
+          <strong>"name"</strong>).
+        </div>
+      </div>
     </div>
   </div>
 </div>

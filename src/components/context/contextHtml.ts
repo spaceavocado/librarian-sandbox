@@ -51,6 +51,8 @@ const reduceMatches = (matches: Match[]) =>
     }))
   )(matches)
 
+const escapeQuotes = (term: string) => term.replace(/"/g, '&quot;')
+
 const placeMatches = (context: string) => (matches: Match[]) =>
   pipe(
     sort<Match>((a, b) => (a.index <= b.index ? -1 : 1)),
@@ -64,7 +66,9 @@ const placeMatches = (context: string) => (matches: Match[]) =>
             context.substring(match.index + offset + match.length),
           offset: offset + replacement.length - match.length,
         }))(
-          `<span class="${CSS_CLASS_MATCH}" data-term="${match.term}">${match.match}</span>`
+          `<span class="${CSS_CLASS_MATCH}" data-term="${escapeQuotes(
+            match.term
+          )}">${match.match}</span>`
         ),
       { offset: 0, context }
     ),
