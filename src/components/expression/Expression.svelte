@@ -197,7 +197,7 @@
       </p>
       <div class="vs--xs--1" />
       <div class="expression__legend__right__title">
-        Escape Special Characters
+        Escaping Special Characters
       </div>
       <div class="expression__legend__right__entry">
         <div>
