@@ -12,6 +12,7 @@
 
   let context = ''
   let expression = ''
+  let exhaustiveOr = false
 
   let searchResult: EvaluationResult = false
   let probeResult: ProbeResult | undefined
@@ -29,7 +30,9 @@
 
   const search = () => {
     try {
-      ;[searchResult, probeResult] = probe(parse(expression)).execute(context)
+      ;[searchResult, probeResult] = probe(
+        parse(expression, { exhaustiveOr })
+      ).execute(context)
     } catch (e) {
       const message: string = e.message ?? ''
       notifications = [
@@ -90,7 +93,13 @@
     <div class="row">
       <div class="vs--xs--2" />
       <div class="col--xs--12 flex">
-        <Expression on:changed={pipe((e) => (expression = e.detail), search)} />
+        <Expression
+          on:changed={pipe((e) => {
+            expression = e.detail.input
+            exhaustiveOr = e.detail.options.exhaustiveOr
+            return expression
+          }, search)}
+        />
       </div>
       <div class="vs--xs--2" />
       <div class="keyline--1" />

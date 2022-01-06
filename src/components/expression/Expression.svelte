@@ -1,13 +1,16 @@
 <script lang="ts">
   import { createEventDispatcher, onMount, onDestroy } from 'svelte'
   import Text from '../form/input/Text.svelte'
+  import Toggle from '../form/input/Toggle.svelte'
   import Button from '../button/Button.svelte'
+  import { pipe } from '../../common/fp'
 
   const dispatch = createEventDispatcher()
 
   let input = ''
+  let exhaustiveOr = false
 
-  const search = () => dispatch('changed', input)
+  const search = () => dispatch('changed', { input, options: { exhaustiveOr } })
 
   const keypress = (e: KeyboardEvent) => e.key === 'Enter' && search()
 
@@ -43,7 +46,11 @@
       }
     }
 
-    .legend {
+    &__options {
+      margin-top: $vs-1-half;
+    }
+
+    &__legend {
       @include font-size($fs-xs);
       margin-top: $vs-1-half;
       width: 100%;
@@ -91,37 +98,45 @@
     />
     <Button title="Search" on:click={search}>Search</Button>
   </div>
-  <div class="legend">
-    <div class="legend__boolean">
-      <div class="legend__boolean__title">Boolean Operators</div>
-      <div class="legend__boolean__entry">
+  <div class="expression__options">
+    <Toggle
+      name="exhaustive-or"
+      label="Exhaustive OR"
+      value={exhaustiveOr}
+      on:changed={pipe((e) => (exhaustiveOr = e.detail), search)}
+    />
+  </div>
+  <div class="expression__legend">
+    <div class="expression__legend__boolean">
+      <div class="expression__legend__boolean__title">Boolean Operators</div>
+      <div class="expression__legend__boolean__entry">
         <div>
           <strong>AND</strong> Requires all terms to be found within the search context.
         </div>
         <div>Sample: <span>"nasa" AND "mission" AND "ganymede"</span>.</div>
       </div>
-      <div class="legend__boolean__entry">
+      <div class="expression__legend__boolean__entry">
         <div>
           <strong>OR</strong> Requires at least one term to be found within the search
           context.
         </div>
         <div>Sample: <span>"nasa" OR "mission" OR "ganymede"</span>.</div>
       </div>
-      <div class="legend__boolean__entry">
+      <div class="expression__legend__boolean__entry">
         <div>
           <strong>NOR</strong> Negative OR, Requires no terms to be found within
           the search context.
         </div>
         <div>Sample: <span>"nasa" NOR "mission" NOR "ganymede"</span>.</div>
       </div>
-      <div class="legend__boolean__entry">
+      <div class="expression__legend__boolean__entry">
         <div>
           <strong>XOR</strong> Exclusive OR, requires exactly one term to be found
           within the search context.
         </div>
         <div>Sample: <span>"nasa" XOR "mission" XOR "ganymede"</span>.</div>
       </div>
-      <div class="legend__boolean__entry">
+      <div class="expression__legend__boolean__entry">
         <div>
           <strong>NOT</strong> Flips the outcome of AND, OR, NOR, XOR operators and/or
           result of the search term.
@@ -138,9 +153,9 @@
         >
       </p>
     </div>
-    <div class="legend__wildcards">
-      <div class="legend__wildcards__title">Wildcards</div>
-      <div class="legend__wildcards__entry">
+    <div class="expression__legend__wildcards">
+      <div class="expression__legend__wildcards__title">Wildcards</div>
+      <div class="expression__legend__wildcards__entry">
         <div>
           <strong>An Asterisk (*)</strong> An asterisk (*) may be used to specify
           any number of characters. It is typically used at the end of a root word,
@@ -156,7 +171,7 @@
           >r, b<strong>ea</strong>r).
         </div>
       </div>
-      <div class="legend__wildcards__entry">
+      <div class="expression__legend__wildcards__entry">
         <div>
           <strong>A Question Mark (?)</strong> A question mark (?) may be used to
           represent a single character, anywhere in the word. It is most useful when
