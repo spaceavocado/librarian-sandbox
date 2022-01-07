@@ -4,6 +4,7 @@
   export let value: boolean
   export let name: string
   export let label = ''
+  export let title = ''
   export let disabled = false
 
   $: checked = `${value}`
@@ -129,7 +130,7 @@
       <label for={name}>{label}</label>
     {/if}
     <input type="hidden" value={checked} {name} />
-    <div class="toggle__content__shell" on:click={toggle}>
+    <div class="toggle__content__shell" on:click={toggle} {title}>
       <div class="toggle__content__shell__bar" />
       <div class="toggle__content__shell__carrige">
         <div class="toggle__content__shell__carrige__outer" />

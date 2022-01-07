@@ -102,6 +102,7 @@
     <Toggle
       name="exhaustive-or"
       label="Exhaustive OR"
+      title="Logical OR operator to perform a exhaustive seach, i.e. performing all evaluation without short-circuiting."
       value={exhaustiveOr}
       on:changed={pipe((e) => (exhaustiveOr = e.detail), search)}
     />
